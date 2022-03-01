@@ -12,7 +12,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
-        self.title = "User Feed"
+        self.title = "Feed"
 
         let button = UIButton(frame: CGRect(x: 140, y: 500, width: 125, height: 50))
         view.addSubview(button)
@@ -23,13 +23,14 @@ class FeedViewController: UIViewController {
         button.layer.cornerRadius = 12
 
         button.addTarget(self, action: #selector(buttonPush), for: .touchUpInside)
+   //     self.navigationController?.navigationBar.backgroundColor = .white
 
-
-   }
+    }
     
     @objc func buttonPush() {
         let postViewController = PostViewController()
         navigationController?.pushViewController(postViewController, animated: true)
+
     }
 
 
@@ -38,6 +39,6 @@ struct Post {
     let title:String = "Post"
 
 }
-//let title = Post(title: "Post")
+
 
 
