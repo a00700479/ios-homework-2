@@ -81,6 +81,7 @@ final class ProfileHeaderView: UIView{
     
     override init (frame: CGRect) {
         super.init(frame: frame)
+        self.statusTextField.delegate = self
         self.drawSelf()
     }
     required init?(coder: NSCoder) {
@@ -180,10 +181,18 @@ final class ProfileHeaderView: UIView{
     }
 }
 
+extension ProfileHeaderView: UITextFieldDelegate {
 
+func hideKeyboard() {
+    self.statusTextField.resignFirstResponder()
+}
 
+func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    hideKeyboard()
+    return true
+}
 
-
+}
 
 
 
