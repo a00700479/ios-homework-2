@@ -23,16 +23,30 @@ class MainTabBarController: UITabBarController {
         self.tabBar.isTranslucent = false
         tabBar.tintColor = .blue
         tabBar.unselectedItemTintColor = .gray
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+
     }
 
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+    
     func setupTabBar() {
 
         let feedViewController = createNavigationController(vc:FeedViewController(), titleName: "Feed", picture: "newspaper")
 
-        let profileViewController = createNavigationController(vc:ProfileViewController(), titleName: "Profile", picture: "person")
+        let profileViewController = createNavigationController(vc:LogInViewController(), titleName: "Profile Log", picture: "person")
+
+
+
+       // let logInViewController = createNavigationController(vc:LogInViewController(), titleName: "Log in", picture: "person")
 
 
         viewControllers = [feedViewController, profileViewController]
+    //    viewControllers = [feedViewController, logInViewController, profileViewController]
     }
 
     func createNavigationController(vc: UIViewController, titleName:String, picture:String) -> UINavigationController {
