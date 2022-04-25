@@ -9,65 +9,88 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-
     private lazy var profileHeaderView: ProfileHeaderView = {
         let view = ProfileHeaderView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     } ()
 
-
-    private var heightConstraint: NSLayoutConstraint?
-
+    private lazy var changeTitleButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .blue
+        button.tintColor = .white
+        button.setTitle("Change title", for: .normal)
+        button.layer.cornerRadius = 12
+       // button.layer.shadowOffset.width = 4
+       // button.layer.shadowOffset.height = 4
+       // button.layer.shadowRadius = 4
+     //   button.layer.shadowColor = UIColor.black.cgColor
+     //   button.layer.shadowOpacity = 0.7
+        button.addTarget(self, action: #selector(changeTitleButtonPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         self.title = "Profile"
-        self.viewWillLayoutSubviews()
-
+      //  self.viewWillLayoutSubviews()
 
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .systemGray5
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
 
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        view.addSubview(profileHeaderView)
+        setupViews()
         activateViewConstraints()
-
     }
 
-    private func activateViewConstraints() {
+    private func setupViews() {
+        view.addSubview(profileHeaderView)
+        view.addSubview(changeTitleButton)
+    }
 
+    @objc private func changeTitleButtonPressed() {
+        print ("Change title")
 
+            let alert = UIAlertController(title: "Set title", message: "Enter new title", preferredStyle: .alert)
+            alert.addTextField()
 
-        let topConstraint = self.profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
+            let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self, weak alert] _ in
+                guard let newTitle = alert?.textFields?[0].text else {return}
+                if newTitle.isEmpty {
+                    let alert = UIAlertController(title: "You should enter something", message: nil, preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                    alert.addAction(okAction)
+                    self?.present(alert, animated: true)
+                }
+                self?.profileHeaderView.changeTitle(title: newTitle)
+            }
+            alert.addAction(okAction)
 
-        let centerXConstraint = self.profileHeaderView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
 
-        let centerYConstraint = self.profileHeaderView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            present(alert, animated: true)
+        }
 
-       let widthConstraint = self.profileHeaderView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
+        private func activateViewConstraints() {
 
-        let bottomConstraint = self.profileHeaderView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
-
-
-
-        NSLayoutConstraint.activate([
-          topConstraint,
-          centerXConstraint,
-          centerYConstraint,
-          widthConstraint,
-          bottomConstraint
+            NSLayoutConstraint.activate([
+            self.profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            self.profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            self.profileHeaderView.heightAnchor.constraint(equalToConstant: 270)
         ])
 
+            NSLayoutConstraint.activate([
+                changeTitleButton.heightAnchor.constraint(equalToConstant: 50),
+                changeTitleButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                changeTitleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                changeTitleButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            ])
     }
-
-    
 }
-    
+
 
