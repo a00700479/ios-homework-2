@@ -120,7 +120,9 @@ class LogInViewController: UIViewController {
 
     @objc private func buttonClicked() {
         let profileViewController = ProfileViewController()
-        navigationController?.pushViewController(profileViewController, animated: true)
+    //    navigationController?.pushViewController(profileViewController, animated: true)
+        profileViewController.modalPresentationStyle = .fullScreen
+        present(profileViewController, animated: true)
     }
 }
 
@@ -189,7 +191,7 @@ extension LogInViewController {
         case .selected:
             logInButton.alpha = 0.8
         case .normal:
-            logInButton.alpha = 0.3
+            logInButton.alpha = 1
         case .highlighted:
             logInButton.alpha = 0.8
         case .disabled:

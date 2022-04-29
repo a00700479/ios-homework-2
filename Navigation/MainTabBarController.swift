@@ -38,11 +38,10 @@ class MainTabBarController: UITabBarController {
 
         let feedViewController = createNavigationController(vc:FeedViewController(), titleName: "Feed", picture: "newspaper")
 
-        let profileViewController = createNavigationController(vc:LogInViewController(), titleName: "Profile Log", picture: "person")
+//        let profileViewController = createNavigationController(vc:LogInViewController(), titleName: "Profile Log", picture: "person")
 
+        let profileViewController = createNavigationController(vc:ProfileViewController(), titleName: "Profile", picture: "person")
 
-
-       // let logInViewController = createNavigationController(vc:LogInViewController(), titleName: "Log in", picture: "person")
 
 
         viewControllers = [feedViewController, profileViewController]
