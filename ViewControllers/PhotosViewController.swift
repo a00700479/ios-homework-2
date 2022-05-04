@@ -55,10 +55,8 @@ class PhotosViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
             detailPhotoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             detailPhotoView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             detailPhotoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

@@ -32,14 +32,11 @@ class ProfileViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       // setStatusBarColor()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     private func layout() {
         view.addSubview(tableView)
-
-
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -50,17 +47,11 @@ class ProfileViewController: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       view.endEditing(true)
+        view.endEditing(true)
     }
 }
 
 extension ProfileViewController: UITableViewDataSource {
-
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//
-//        return postModel.count
-//    }
-
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postModel[section].count + 1
@@ -78,8 +69,6 @@ extension ProfileViewController: UITableViewDataSource {
             cell.setupCell(postModel[indexPath.section][indexPath.row - 1])
             return cell
         }
-
-
     }
 }
 

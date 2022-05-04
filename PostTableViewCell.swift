@@ -101,24 +101,17 @@ class PostTableViewCell: UITableViewCell {
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -16),
-        ])
 
-        NSLayoutConstraint.activate([
             petsImageView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 12),
             petsImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            petsImageView.heightAnchor.constraint(equalTo: petsImageView.widthAnchor)
-        ])
+            petsImageView.heightAnchor.constraint(equalTo: petsImageView.widthAnchor),
 
-        NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: petsImageView.bottomAnchor, constant: 16),
+                 descriptionLabel.topAnchor.constraint(equalTo: petsImageView.bottomAnchor, constant: 16),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -60)
-        ])
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -60),
 
-        NSLayoutConstraint.activate([
-
-            labelsStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
+             labelsStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
             labelsStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             labelsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             labelsStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)

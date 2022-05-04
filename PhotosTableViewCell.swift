@@ -100,16 +100,6 @@ class PhotosTableViewCell: UITableViewCell {
 
     private func setupView() {
 
-//        self.contentView.addSubview(self.backView)
-//        self.backView.addSubview(self.collectionLabel)
-//        self.backView.addSubview(self.arrowView)
-//        self.backView.addSubview(self.photosStackView)
-//
-//        self.photosStackView.addArrangedSubview(firstImageView)
-//        self.photosStackView.addArrangedSubview(secondImageView)
-//        self.photosStackView.addArrangedSubview(thirdImageView)
-//        self.photosStackView.addArrangedSubview(fourImageView)
-
         contentView.addSubview(backView)
         backView.addSubview(collectionLabel)
         backView.addSubview(arrowView)
