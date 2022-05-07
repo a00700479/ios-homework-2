@@ -9,6 +9,7 @@ import UIKit
 
 class LogInViewController: UIViewController {
 
+    private let nc = NotificationCenter.default
 
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -99,6 +100,37 @@ class LogInViewController: UIViewController {
         buttonConfigure()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+
+        nc.addObserver(self, selector: #selector(kbdShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        nc.addObserver(self, selector: #selector(kbdHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+
+    // срабатывает когда клавиутару показалась
+    @objc private func kbdShow(notification: NSNotification) {
+
+        // нужно вычислить размер клавиатуры
+        if let kbdSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { //  кастим до NSValue и берем ее фрейм
+
+            scrollView.contentInset.bottom = kbdSize.height // нижний отступ измени на высоту клавиатуры
+
+            scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbdSize.height, right: 0) // индикатор тоже хотим сместить здесь от низа на высоту нашей клавиатуры
+        }
+    }
+
+    @objc private func kbdHide() {
+        scrollView.contentInset = .zero // скролл вью обратно прилипнет к низу экрана
+        scrollView.verticalScrollIndicatorInsets = .zero
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        nc.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        nc.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
+    }
 
     private func setupViews() {
 
@@ -135,9 +167,17 @@ extension LogInViewController {
 
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+         
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+
             contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
+
+           
+        ])
+
 
             vkImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120),
             vkImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -152,7 +192,8 @@ extension LogInViewController {
             logInButton.topAnchor.constraint(equalTo: loginPasswordStackView.bottomAnchor, constant: 16),
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            logInButton.heightAnchor.constraint(equalToConstant: 50)
+            logInButton.heightAnchor.constraint(equalToConstant: 50),
+            logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
 
     }
@@ -189,5 +230,6 @@ extension LogInViewController {
         }
     }
 }
+
 
 
