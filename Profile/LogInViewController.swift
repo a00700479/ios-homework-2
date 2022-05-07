@@ -163,36 +163,32 @@ extension LogInViewController {
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
 
-        NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            //  contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+         
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            //  contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+
+            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
+
+           
         ])
 
-        NSLayoutConstraint.activate([
+
             vkImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120),
             vkImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             vkImageView.heightAnchor.constraint(equalToConstant: 100),
-            vkImageView.widthAnchor.constraint(equalToConstant: 100)
-        ])
+            vkImageView.widthAnchor.constraint(equalToConstant: 100),
 
-        NSLayoutConstraint.activate([
             loginPasswordStackView.topAnchor.constraint(equalTo: vkImageView.bottomAnchor, constant: 120),
             loginPasswordStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             loginPasswordStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            loginPasswordStackView.heightAnchor.constraint(equalToConstant: 100)
-        ])
+            loginPasswordStackView.heightAnchor.constraint(equalToConstant: 100),
 
-
-        NSLayoutConstraint.activate([
             logInButton.topAnchor.constraint(equalTo: loginPasswordStackView.bottomAnchor, constant: 16),
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
