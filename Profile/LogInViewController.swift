@@ -149,7 +149,9 @@ class LogInViewController: UIViewController {
 
     @objc private func buttonClicked() {
         let profileViewController = ProfileViewController()
-        navigationController?.pushViewController(profileViewController, animated: true)
+    //    navigationController?.pushViewController(profileViewController, animated: true)
+        profileViewController.modalPresentationStyle = .fullScreen
+        present(profileViewController, animated: true)
     }
 }
 

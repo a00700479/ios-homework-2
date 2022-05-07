@@ -8,82 +8,74 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    
-    private lazy var profileHeaderView: ProfileHeaderView = {
-        let view = ProfileHeaderView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    } ()
-    
-    private lazy var changeTitleButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .blue
-        button.tintColor = .white
-        button.setTitle("Change title", for: .normal)
-        button.layer.cornerRadius = 12
-        button.addTarget(self, action: #selector(changeTitleButtonPressed), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+
+    private let postModel:[[PostModel]] = PostModel.makePostModel()
+
+    private lazy var tableView: UITableView = {
+
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(PostTableViewCell.self,
+                           forCellReuseIdentifier: PostTableViewCell.identifier)
+        return tableView
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
-        self.title = "Profile"
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .systemGray5
-        navigationItem.standardAppearance = appearance
-        navigationItem.scrollEdgeAppearance = appearance
-        
-        setupViews()
-        activateViewConstraints()
+        layout()
     }
-    
-    private func setupViews() {
-        view.addSubview(profileHeaderView)
-        view.addSubview(changeTitleButton)
-    }
-    
-    @objc private func changeTitleButtonPressed() {
-        print ("Change title")
-        
-        let alert = UIAlertController(title: "Set title", message: "Enter new title", preferredStyle: .alert)
-        alert.addTextField()
-        
-        let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self, weak alert] _ in
-            guard let newTitle = alert?.textFields?[0].text else {return}
-            if newTitle.isEmpty {
-                let alert = UIAlertController(title: "You should enter something", message: nil, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(okAction)
-                self?.present(alert, animated: true)
-            }
-            self?.profileHeaderView.changeTitle(title: newTitle)
-        }
-        alert.addAction(okAction)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true)
-    }
-    
-    private func activateViewConstraints() {
-        
+
+    private func layout() {
+        view.addSubview(tableView)
+
         NSLayoutConstraint.activate([
-            self.profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            self.profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            self.profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            self.profileHeaderView.heightAnchor.constraint(equalToConstant: 270)
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-        
-        NSLayoutConstraint.activate([
-            changeTitleButton.heightAnchor.constraint(equalToConstant: 50),
-            changeTitleButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            changeTitleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            changeTitleButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+    }
+}
+
+extension ProfileViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        return postModel.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postModel[section].count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
+
+        cell.setupCell(postModel[indexPath.section][indexPath.row])
+        return cell
+    }
+}
+
+extension ProfileViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = ProfileHeaderView()
+        return header
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 300
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

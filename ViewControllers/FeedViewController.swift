@@ -68,12 +68,6 @@ class FeedViewController: UIViewController {
         //postVC.post = post
         self.navigationController?.pushViewController(postVC, animated: true)
     }
-    
-//    @objc func buttonPush() {
-//        let postViewController = PostViewController()
-//        navigationController?.pushViewController(postViewController, animated: true)
-//
-//    }
 
 
 }

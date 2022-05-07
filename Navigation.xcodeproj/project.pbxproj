@@ -17,6 +17,9 @@
 		E18085A527B9AB2A00EDD385 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18085A427B9AB2A00EDD385 /* ProfileViewController.swift */; };
 		E1BEC69727BBFEA600EE0A6D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BEC69627BBFEA600EE0A6D /* PostViewController.swift */; };
 		E1BEC69927BC2B2300EE0A6D /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BEC69827BC2B2300EE0A6D /* InfoViewController.swift */; };
+		E1D5E84F281887A2006AC7AF /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E84E281887A2006AC7AF /* PostModel.swift */; };
+		E1D5E8512819774D006AC7AF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E8502819774D006AC7AF /* UIView+Extension.swift */; };
+		E1D5E853281977D2006AC7AF /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E852281977D2006AC7AF /* PostTableViewCell.swift */; };
 		E1E5B10628104B67003D951D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5B10528104B67003D951D /* LogInViewController.swift */; };
 		E1F8604B27BCF19200B0E2DB /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8604A27BCF19200B0E2DB /* ProfileHeaderView.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +37,9 @@
 		E18085A427B9AB2A00EDD385 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E1BEC69627BBFEA600EE0A6D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E1BEC69827BC2B2300EE0A6D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		E1D5E84E281887A2006AC7AF /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		E1D5E8502819774D006AC7AF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E1D5E852281977D2006AC7AF /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		E1E5B10528104B67003D951D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		E1F8604A27BCF19200B0E2DB /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,6 +58,9 @@
 		E147548027B99E2500431B55 = {
 			isa = PBXGroup;
 			children = (
+				E1D5E852281977D2006AC7AF /* PostTableViewCell.swift */,
+				E1D5E8502819774D006AC7AF /* UIView+Extension.swift */,
+				E1D5E84E281887A2006AC7AF /* PostModel.swift */,
 				E1A846DC27CE2CA200F7EB26 /* ViewControllers */,
 				E1F8604727BCF12200B0E2DB /* Profile */,
 				E147548B27B99E2500431B55 /* Navigation */,
@@ -172,10 +181,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E18085A527B9AB2A00EDD385 /* ProfileViewController.swift in Sources */,
+				E1D5E84F281887A2006AC7AF /* PostModel.swift in Sources */,
+				E1D5E853281977D2006AC7AF /* PostTableViewCell.swift in Sources */,
 				E147549127B99E2500431B55 /* ViewController.swift in Sources */,
 				E1BEC69727BBFEA600EE0A6D /* PostViewController.swift in Sources */,
 				E147548D27B99E2500431B55 /* AppDelegate.swift in Sources */,
 				E1F8604B27BCF19200B0E2DB /* ProfileHeaderView.swift in Sources */,
+				E1D5E8512819774D006AC7AF /* UIView+Extension.swift in Sources */,
 				E18085A327B9AAF300EDD385 /* FeedViewController.swift in Sources */,
 				E14754A127B9A04C00431B55 /* MainTabBarController.swift in Sources */,
 				E1BEC69927BC2B2300EE0A6D /* InfoViewController.swift in Sources */,
