@@ -9,6 +9,9 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    let profileView = ProfileHeaderView()
+    let avatarView = AvatarZoomView()
+
     private let postModel:[[PostModel]] = PostModel.makePostModel()
 
     private lazy var tableView: UITableView = {
@@ -27,7 +30,12 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+
         layout()
+
+        let avatarTap = UITapGestureRecognizer(target: self, action: #selector(onTapScreen))
+        profileView.avatarImageView.addGestureRecognizer(avatarTap)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -35,10 +43,33 @@ class ProfileViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
+    @objc func onTapScreen() {
+
+        UIView.animate(withDuration: 0.5) {
+            self.avatarView.alpha = 1
+        }
+    }
+
     private func layout() {
+
+        avatarView.translatesAutoresizingMaskIntoConstraints = false
+
         view.addSubview(tableView)
+        view.addSubview(avatarView)
 
         NSLayoutConstraint.activate([
+
+            avatarView.topAnchor.constraint(equalTo: view.topAnchor),
+            avatarView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            avatarView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            avatarView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            avatarView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -79,11 +110,8 @@ extension ProfileViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var headerView = UIView()
-        if section == 0 {
-            headerView = ProfileHeaderView()
-        }
-        return headerView
+
+        return profileView
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -98,5 +126,3 @@ extension ProfileViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-
-
