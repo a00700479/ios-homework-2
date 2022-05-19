@@ -95,6 +95,7 @@ class LogInViewController: UIViewController {
         setupViews()
         setDelegates()
         setConstraints()
+        self.navigationController?.isNavigationBarHidden = true
 
         buttonConfigure()
     }
