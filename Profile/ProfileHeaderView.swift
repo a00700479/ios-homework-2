@@ -48,7 +48,7 @@ final class ProfileHeaderView: UIView{
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .blue
         button.tintColor = .white
-        button.setTitle("Show status", for: .normal)
+        button.setTitle("Set status", for: .normal)
         button.layer.cornerRadius = 12
         button.layer.shadowOffset.width = 4
         button.layer.shadowOffset.height = 4
@@ -59,7 +59,7 @@ final class ProfileHeaderView: UIView{
         return button
     }()
     
-    private lazy var statusTextField: UITextField = {
+    lazy var statusTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
@@ -153,34 +153,94 @@ final class ProfileHeaderView: UIView{
     }
         
     @objc func buttonPressed() {
-        if self.statusTextField.alpha == 0 {
-            
+        if self.statusTextField.alpha == 0  {
+
             self.statusButtonTopMoved = self.setStatusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 65)
-            
+
             NSLayoutConstraint.deactivate([self.statusButtonTop].compactMap({$0}))
-            
+
             NSLayoutConstraint.activate([self.statusButtonTopMoved].compactMap({$0}))
-            
+
             self.statusTextField.alpha = 1
+
+        } else
+
+
+
+        if self.statusTextField.state.isEmpty {
+            statusTextField.trigger()
+
         } else {
+
             self.statusButtonTop = self.setStatusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16)
-            
+
             NSLayoutConstraint.deactivate([self.statusButtonTopMoved].compactMap({$0}))
-            
+
             NSLayoutConstraint.activate([self.statusButtonTop].compactMap({$0}))
-            
+
             self.statusTextField.alpha = 0
             self.statusLabel.text = self.statusTextField.text
-            if self.statusLabel.text == "" {
+
+            if self.statusLabel.text == ""  {
+
                 self.statusLabel.text = self.statusText
+                endEditing(true)
+
             }
         }
+
+//        else {
+//
+//            self.statusButtonTop = self.setStatusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16)
+//
+//            NSLayoutConstraint.deactivate([self.statusButtonTopMoved].compactMap({$0}))
+//
+//            NSLayoutConstraint.activate([self.statusButtonTop].compactMap({$0}))
+//
+//            self.statusTextField.alpha = 0
+//            self.statusLabel.text = self.statusTextField.text
+//
+//                    if self.statusLabel.text == ""  {
+//                    //    statusTextField.trigger()
+//                self.statusLabel.text = self.statusText
+//
+//
+//            }
+
+//                if statusTextField.state.isEmpty {
+//                statusTextField.trigger()
+//            }
+
+
+//        guard let status = statusTextField.text else {return}
+//        if !status.isEmpty {
+//            UIView.animate(withDuration: 0.3) {
+//                self.status.text = self.statusTextField.text
+//                self.statusTextField.text = .none
+//            } completion: { <#Bool#> in
+//                <#code#>
+//            }
+//
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
   public  func changeTitle(title: String) {
         self.fullNameLabel.text = title
     }
+
 }
+
 
 extension ProfileHeaderView: UITextFieldDelegate {
 
@@ -192,6 +252,8 @@ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     hideKeyboard()
     return true
 }
+
+
 
 }
 

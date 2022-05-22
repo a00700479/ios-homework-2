@@ -14,8 +14,8 @@ class AvatarZoomView: UIView {
     private lazy var alphaView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        return view
+        view.backgroundColor = .black
+                return view
     }()
 
     private lazy var avatarImage: UIImageView = {
