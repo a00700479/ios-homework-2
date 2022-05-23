@@ -11,16 +11,17 @@ import UIKit
 final class ProfileHeaderView: UIView{
     
     
-    private lazy var avatarImageView: UIImageView = {
+    lazy var avatarImageView: UIImageView = {
         
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+      let imageView = UIImageView()
         imageView.image = UIImage(named: "cat")
         imageView.layer.cornerRadius = 75
         imageView.layer.borderWidth = 3
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.borderColor = UIColor.white.cgColor
+                imageView.layer.borderColor = UIColor.white.cgColor
+          imageView.isUserInteractionEnabled = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
         
     }()
