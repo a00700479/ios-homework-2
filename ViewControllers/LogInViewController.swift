@@ -8,22 +8,22 @@
 import UIKit
 
 class LogInViewController: UIViewController {
-
-
+    
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .white
         return scrollView
     }()
-
+    
     private lazy var contentView: UIView = {
         let contentView = UIView()
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.backgroundColor = .white
         return contentView
     }()
-
+    
     private let vkImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,8 +31,8 @@ class LogInViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-
-
+    
+    
     private lazy var loginPasswordStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [loginTextField, passwordTextField])
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +45,7 @@ class LogInViewController: UIViewController {
         stackView.layer.cornerRadius = 10
         return stackView
     }()
-
+    
     private lazy var loginTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +60,7 @@ class LogInViewController: UIViewController {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         return textField
     }()
-
+    
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -76,8 +76,8 @@ class LogInViewController: UIViewController {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         return textField
     }()
-
-
+    
+    
     private lazy var logInButton: UIButton = {
         let button = UIButton()
         button.setTitle("Log In", for: .normal)
@@ -88,7 +88,7 @@ class LogInViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     private lazy var invalidLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
@@ -102,54 +102,53 @@ class LogInViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupViews()
         setDelegates()
         setConstraints()
         self.navigationController?.isNavigationBarHidden = true
-
+        
         buttonConfigure()
     }
-
-
+    
     private func setupViews() {
-
+        
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-
+        
         contentView.addSubview(vkImageView)
         contentView.addSubview(loginPasswordStackView)
         contentView.addSubview(logInButton)
         contentView.addSubview(invalidLabel)
     }
-
+    
     private lazy var validationData = ValidationData()
-
+    
     private func validEmail(login: String) -> Bool {
-
+        
         let emailReg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let validEmail = NSPredicate(format: "SELF MATCHES %@", emailReg)
-              return validEmail.evaluate(with: login)
+        return validEmail.evaluate(with: login)
     }
-
+    
     private func validPassword(password: String) -> Bool {
-
+        
         let passwordReg =  ("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])(?=.*[@#$%^&*]).{8,}")
         let passwordTesting = NSPredicate(format: "SELF MATCHES %@", passwordReg)
         return passwordTesting.evaluate(with: password) && password.count > 6
     }
-
+    
     private func setDelegates() {
         loginTextField.delegate = self
         passwordTextField.delegate = self
     }
-
+    
     @objc private func buttonClicked() {
         let profileViewController = ProfileViewController()
-
+        
         guard let login = loginTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         let enteredLogin = validEmail(login: login)
@@ -175,7 +174,7 @@ class LogInViewController: UIViewController {
                 invalidLabel.text = validationData.invalidEmail
                 invalidLabel.isHidden = false
                 loginTextField.trigger()
-
+                
             } else {
                 if (enteredLogin && enteredPassword) && (loginTextField.text != validationData.defaultLogin || passwordTextField.text != validationData.defaultPassword) {
                     let alert = UIAlertController(title: "Invalid login or password", message: nil, preferredStyle: .alert)
@@ -187,68 +186,27 @@ class LogInViewController: UIViewController {
                 }
             }
         }
-
-
-
-    //    navigationController?.pushViewController(profileViewController, animated: true)
-
-
-      //  profileViewController.modalPresentationStyle = .fullScreen
-       // present(profileViewController, animated: true)
     }
 }
 
-
-
-
 extension LogInViewController {
-
+    
     private func setConstraints() {
-
- //       NSLayoutConstraint.activate([
-//            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//
-//            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-//            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-//            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-//            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-//            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
-//
-//            vkImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120),
-//            vkImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//            vkImageView.heightAnchor.constraint(equalToConstant: 100),
-//            vkImageView.widthAnchor.constraint(equalToConstant: 100),
-//
-//            loginPasswordStackView.topAnchor.constraint(equalTo: vkImageView.bottomAnchor, constant: 120),
-//            loginPasswordStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-//            loginPasswordStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-//            loginPasswordStackView.heightAnchor.constraint(equalToConstant: 100),
-//
-//            logInButton.topAnchor.constraint(equalTo: loginPasswordStackView.bottomAnchor, constant: 16),
-//            logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-//            logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-//            logInButton.heightAnchor.constraint(equalToConstant: 50)
-
-//        ])
-
+        
         var constraints = [NSLayoutConstraint]()
-
+        
         constraints.append(scrollView.topAnchor.constraint(equalTo: view.topAnchor))
         constraints.append(scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
         constraints.append(scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
         constraints.append(scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor))
         constraints.append(scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor))
-
+        
         constraints.append(contentView.topAnchor.constraint(equalTo: scrollView.topAnchor))
         constraints.append(contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor))
         constraints.append(contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor))
         constraints.append(contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor))
         constraints.append(contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor))
-
-
+        
         constraints.append(loginPasswordStackView.topAnchor.constraint(lessThanOrEqualTo: vkImageView.bottomAnchor, constant: 50))
         constraints.append(loginPasswordStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor))
         let leadingStackConstraint = loginPasswordStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
@@ -257,12 +215,12 @@ extension LogInViewController {
         trailingStackConstraint.priority = UILayoutPriority(999)
         constraints.append(leadingStackConstraint)
         constraints.append(trailingStackConstraint)
-
+        
         constraints.append(vkImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor))
         constraints.append(vkImageView.widthAnchor.constraint(equalToConstant: 100))
         constraints.append(vkImageView.heightAnchor.constraint(equalToConstant: 100))
         constraints.append(vkImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 100))
-
+        
         constraints.append(logInButton.topAnchor.constraint(equalTo: self.loginPasswordStackView.bottomAnchor, constant: 60))
         constraints.append(logInButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor))
         constraints.append(logInButton.widthAnchor.constraint(equalToConstant: 350))
@@ -270,13 +228,13 @@ extension LogInViewController {
         let loginButtonBottomAnchor = logInButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         loginButtonBottomAnchor.priority = UILayoutPriority(999)
         constraints.append(loginButtonBottomAnchor)
-
+        
         constraints.append(invalidLabel.topAnchor.constraint(equalTo: loginPasswordStackView.bottomAnchor, constant: 5))
         constraints.append(invalidLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor))
         constraints.append(invalidLabel.widthAnchor.constraint(equalToConstant: 300))
-
+        
         NSLayoutConstraint.activate(constraints)
-
+        
         for view in loginPasswordStackView.arrangedSubviews {
             NSLayoutConstraint.activate([
                 view.widthAnchor.constraint(equalToConstant: 350),

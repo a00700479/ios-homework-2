@@ -34,7 +34,6 @@ class MyFavouredPostCell: UITableViewCell {
     private func configureTableView() {
 
         addSubview(myLoots)
-        myLoots.backgroundColor = .red
 
         var constraints = [NSLayoutConstraint]()
 

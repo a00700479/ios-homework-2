@@ -13,5 +13,4 @@ struct ValidationData {
     let invalidEmailAndPassword = "Invalid login or password"
     let invalidEmail = "Invalid login"
     let invalidPassword = "The password must be at least 6 characters and contain at least one: uppercase and lowercase letter, digit, special character"
-
 }

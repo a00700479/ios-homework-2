@@ -23,6 +23,7 @@ class PostZoomViewController:UIViewController {
     private lazy var image: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
         return image
     }()
 
@@ -71,7 +72,6 @@ class PostZoomViewController:UIViewController {
     }
 
     @objc func exitPress() {
-
         dismiss(animated: true)
     }
 
@@ -109,7 +109,7 @@ class PostZoomViewController:UIViewController {
 
         constraints.append(image.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10))
         constraints.append(image.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10))
-        constraints.append(image.heightAnchor.constraint(lessThanOrEqualToConstant: 350))
+        constraints.append(image.heightAnchor.constraint(lessThanOrEqualToConstant: 450))
 
         constraints.append(descriptionV.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 10))
         constraints.append(descriptionV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10))

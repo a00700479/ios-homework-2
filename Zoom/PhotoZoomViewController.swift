@@ -12,6 +12,7 @@ class PhotoZoomVIewController: UIViewController {
     lazy var photo: UIImageView = {
         let photo = UIImageView()
         photo.translatesAutoresizingMaskIntoConstraints = false
+        photo.contentMode = .scaleAspectFit
         return photo
     }()
 
@@ -27,12 +28,10 @@ class PhotoZoomVIewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
         setupView()
     }
 
     func set(image: PhotosView) {
-
         photo.image = UIImage(named: image.imageName)
     }
 
@@ -50,13 +49,12 @@ class PhotoZoomVIewController: UIViewController {
 
             photo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             photo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            photo.heightAnchor.constraint(equalToConstant: 400),
-            photo.widthAnchor.constraint(equalToConstant: 400)
+            photo.heightAnchor.constraint(equalToConstant: 500),
+            photo.widthAnchor.constraint(equalToConstant: 500)
         ])
     }
 
     @objc private func exitPressed() {
-
         dismiss(animated: true)
     }
 }

@@ -23,12 +23,10 @@ class PostViewController: UIViewController {
         let infoButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(buttonInfoClicked))
         
         navigationItem.rightBarButtonItem = infoButton
- 
     }
     
     @objc func buttonInfoClicked() {
         let infoViewController = InfoViewController()
         navigationController?.pushViewController(infoViewController, animated: true)
     }
-    
 }

@@ -24,14 +24,11 @@
 		E1C8A920283BF75A006D5EAA /* PhotoZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8A91F283BF75A006D5EAA /* PhotoZoomViewController.swift */; };
 		E1C8A922283BF76F006D5EAA /* PostZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8A921283BF76E006D5EAA /* PostZoomViewController.swift */; };
 		E1C8A924283C1277006D5EAA /* PhotosViewController+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8A923283C1277006D5EAA /* PhotosViewController+Extention.swift */; };
-		E1D5E84F281887A2006AC7AF /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E84E281887A2006AC7AF /* PostModel.swift */; };
 		E1D5E8512819774D006AC7AF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E8502819774D006AC7AF /* UIView+Extension.swift */; };
 		E1D5E853281977D2006AC7AF /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E852281977D2006AC7AF /* PostTableViewCell.swift */; };
 		E1D5E855281D72BE006AC7AF /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E854281D72BE006AC7AF /* PhotosTableViewCell.swift */; };
 		E1D5E85728219F31006AC7AF /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E85628219F31006AC7AF /* PhotosCollectionViewCell.swift */; };
 		E1D5E8592821A111006AC7AF /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E8582821A111006AC7AF /* PhotosViewController.swift */; };
-		E1D5E85B2821A300006AC7AF /* DetailPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E85A2821A300006AC7AF /* DetailPhotoView.swift */; };
-		E1D5E85D2821A7BB006AC7AF /* CollectionPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5E85C2821A7BB006AC7AF /* CollectionPhotoModel.swift */; };
 		E1E5B10628104B67003D951D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5B10528104B67003D951D /* LogInViewController.swift */; };
 		E1EAF750283505C300D863C7 /* AvatarZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EAF74F283505C300D863C7 /* AvatarZoomView.swift */; };
 		E1F8604B27BCF19200B0E2DB /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8604A27BCF19200B0E2DB /* ProfileHeaderView.swift */; };
@@ -57,14 +54,11 @@
 		E1C8A91F283BF75A006D5EAA /* PhotoZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoZoomViewController.swift; sourceTree = "<group>"; };
 		E1C8A921283BF76E006D5EAA /* PostZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostZoomViewController.swift; sourceTree = "<group>"; };
 		E1C8A923283C1277006D5EAA /* PhotosViewController+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosViewController+Extention.swift"; sourceTree = "<group>"; };
-		E1D5E84E281887A2006AC7AF /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		E1D5E8502819774D006AC7AF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E1D5E852281977D2006AC7AF /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		E1D5E854281D72BE006AC7AF /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		E1D5E85628219F31006AC7AF /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		E1D5E8582821A111006AC7AF /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
-		E1D5E85A2821A300006AC7AF /* DetailPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoView.swift; sourceTree = "<group>"; };
-		E1D5E85C2821A7BB006AC7AF /* CollectionPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotoModel.swift; sourceTree = "<group>"; };
 		E1E5B10528104B67003D951D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		E1EAF74F283505C300D863C7 /* AvatarZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarZoomView.swift; sourceTree = "<group>"; };
 		E1F8604A27BCF19200B0E2DB /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -84,17 +78,8 @@
 		E147548027B99E2500431B55 = {
 			isa = PBXGroup;
 			children = (
-				E1C8A923283C1277006D5EAA /* PhotosViewController+Extention.swift */,
-				E1C8A91B283B6B59006D5EAA /* MyFavouredPostCell.swift */,
-				E1C8A919283B6AEE006D5EAA /* MyFavouredPhotosCell.swift */,
-				E1C8A917283B69A9006D5EAA /* ProfileViewController+Extension.swift */,
-				E1C8A9152838E9B0006D5EAA /* ValidationData.swift */,
-				E1D5E85C2821A7BB006AC7AF /* CollectionPhotoModel.swift */,
-				E1D5E84E281887A2006AC7AF /* PostModel.swift */,
-				E1D5E85628219F31006AC7AF /* PhotosCollectionViewCell.swift */,
-				E1D5E854281D72BE006AC7AF /* PhotosTableViewCell.swift */,
-				E1D5E852281977D2006AC7AF /* PostTableViewCell.swift */,
-				E1D5E8502819774D006AC7AF /* UIView+Extension.swift */,
+				E1C8A926283E973B006D5EAA /* Zoom */,
+				E1C8A925283E96DF006D5EAA /* Cells */,
 				E1A846DC27CE2CA200F7EB26 /* ViewControllers */,
 				E1F8604727BCF12200B0E2DB /* Profile */,
 				E147548B27B99E2500431B55 /* Navigation */,
@@ -127,24 +112,46 @@
 		E1A846DC27CE2CA200F7EB26 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1C8A917283B69A9006D5EAA /* ProfileViewController+Extension.swift */,
+				E1C8A923283C1277006D5EAA /* PhotosViewController+Extention.swift */,
 				E1BEC69827BC2B2300EE0A6D /* InfoViewController.swift */,
 				E1BEC69627BBFEA600EE0A6D /* PostViewController.swift */,
 				E18085A227B9AAF300EDD385 /* FeedViewController.swift */,
 				E1D5E8582821A111006AC7AF /* PhotosViewController.swift */,
+				E1E5B10528104B67003D951D /* LogInViewController.swift */,
 				E18085A427B9AB2A00EDD385 /* ProfileViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E1C8A925283E96DF006D5EAA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5E852281977D2006AC7AF /* PostTableViewCell.swift */,
+				E1D5E854281D72BE006AC7AF /* PhotosTableViewCell.swift */,
+				E1D5E85628219F31006AC7AF /* PhotosCollectionViewCell.swift */,
+				E1C8A919283B6AEE006D5EAA /* MyFavouredPhotosCell.swift */,
+				E1C8A91B283B6B59006D5EAA /* MyFavouredPostCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E1C8A926283E973B006D5EAA /* Zoom */ = {
+			isa = PBXGroup;
+			children = (
+				E1EAF74F283505C300D863C7 /* AvatarZoomView.swift */,
 				E1C8A91F283BF75A006D5EAA /* PhotoZoomViewController.swift */,
 				E1C8A921283BF76E006D5EAA /* PostZoomViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Zoom;
 			sourceTree = "<group>";
 		};
 		E1F8604727BCF12200B0E2DB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				E1D5E8502819774D006AC7AF /* UIView+Extension.swift */,
+				E1C8A9152838E9B0006D5EAA /* ValidationData.swift */,
 				E1F8604A27BCF19200B0E2DB /* ProfileHeaderView.swift */,
-				E1E5B10528104B67003D951D /* LogInViewController.swift */,
-				E1D5E85A2821A300006AC7AF /* DetailPhotoView.swift */,
-				E1EAF74F283505C300D863C7 /* AvatarZoomView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -222,14 +229,12 @@
 				E1C8A9162838E9B0006D5EAA /* ValidationData.swift in Sources */,
 				E18085A527B9AB2A00EDD385 /* ProfileViewController.swift in Sources */,
 				E1D5E8592821A111006AC7AF /* PhotosViewController.swift in Sources */,
-				E1D5E84F281887A2006AC7AF /* PostModel.swift in Sources */,
 				E1D5E853281977D2006AC7AF /* PostTableViewCell.swift in Sources */,
 				E147549127B99E2500431B55 /* ViewController.swift in Sources */,
 				E1C8A922283BF76F006D5EAA /* PostZoomViewController.swift in Sources */,
 				E1BEC69727BBFEA600EE0A6D /* PostViewController.swift in Sources */,
 				E1C8A924283C1277006D5EAA /* PhotosViewController+Extention.swift in Sources */,
 				E147548D27B99E2500431B55 /* AppDelegate.swift in Sources */,
-				E1D5E85B2821A300006AC7AF /* DetailPhotoView.swift in Sources */,
 				E1F8604B27BCF19200B0E2DB /* ProfileHeaderView.swift in Sources */,
 				E1D5E8512819774D006AC7AF /* UIView+Extension.swift in Sources */,
 				E1D5E855281D72BE006AC7AF /* PhotosTableViewCell.swift in Sources */,
@@ -240,7 +245,6 @@
 				E1D5E85728219F31006AC7AF /* PhotosCollectionViewCell.swift in Sources */,
 				E1C8A918283B69A9006D5EAA /* ProfileViewController+Extension.swift in Sources */,
 				E1C8A91C283B6B59006D5EAA /* MyFavouredPostCell.swift in Sources */,
-				E1D5E85D2821A7BB006AC7AF /* CollectionPhotoModel.swift in Sources */,
 				E1BEC69927BC2B2300EE0A6D /* InfoViewController.swift in Sources */,
 				E1E5B10628104B67003D951D /* LogInViewController.swift in Sources */,
 				E1EAF750283505C300D863C7 /* AvatarZoomView.swift in Sources */,
