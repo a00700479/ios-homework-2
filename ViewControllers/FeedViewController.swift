@@ -48,32 +48,27 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-            self.title = "Feed"
+        self.title = "Feed"
 
         setupViews()
         setConstraints()
     }
 
-
     private func setupViews() {
 
-        view.backgroundColor = .yellow
-
+        view.backgroundColor = .white
         view.addSubview(stackView)
         [firstButton, secondButton].forEach { stackView.addArrangedSubview($0) }
     }
 
     @objc private func buttonTapped() {
         let postVC = PostViewController()
-        //postVC.post = post
         self.navigationController?.pushViewController(postVC, animated: true)
     }
-
-
 }
+
 struct Post {
     let title:String = "Post"
-
 }
 
 extension FeedViewController{
@@ -86,7 +81,6 @@ extension FeedViewController{
             stackView.heightAnchor.constraint(equalToConstant: 110),
             stackView.widthAnchor.constraint(equalToConstant: 200)
         ])
-
     }
 }
 

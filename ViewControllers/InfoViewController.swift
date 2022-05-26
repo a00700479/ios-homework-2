@@ -34,9 +34,5 @@ class InfoViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
         print("Alert has been shown")
-        
-        
     }
-    
-    
 }
