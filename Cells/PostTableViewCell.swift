@@ -45,6 +45,7 @@ class PostTableViewCell: UITableViewCell {
         let imagePost = UIImageView()
         imagePost.translatesAutoresizingMaskIntoConstraints = false
         imagePost.contentMode = .scaleAspectFit
+        imagePost.backgroundColor = .black
         return imagePost
     }()
 
@@ -133,13 +134,16 @@ class PostTableViewCell: UITableViewCell {
             imagePost.heightAnchor.constraint(equalToConstant: 350),
 
             stackView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 5),
-            stackView.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -20),
+            stackView.leadingAnchor.constraint(equalTo: backView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: backView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -5),
 
-            likesPost.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            viewsPost.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            authorPost.centerXAnchor.constraint(equalTo: stackView.centerXAnchor)
+            likesPost.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 20),
+            viewsPost.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -20),
+            authorPost.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
+
+            descriptionPost.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 5),
+            descriptionPost.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -5)
         ])
     }
 }

@@ -66,6 +66,8 @@ class PostZoomViewController:UIViewController {
         return stackView
     }()
 
+    private let tapGestureRecognizer = UITapGestureRecognizer()
+
     override func viewDidLoad() {
         view.backgroundColor = .white
         configureTableView()
@@ -74,8 +76,6 @@ class PostZoomViewController:UIViewController {
     @objc func exitPress() {
         dismiss(animated: true)
     }
-
-    private let tapGestureRecognizer = UITapGestureRecognizer()
 
     func set(post: PostView) {
         author.text = post.author
