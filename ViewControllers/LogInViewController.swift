@@ -9,8 +9,7 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
-    
-    private lazy var scrollView: UIScrollView = {
+        private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .white
@@ -32,8 +31,7 @@ class LogInViewController: UIViewController {
         return imageView
     }()
     
-    
-    private lazy var loginPasswordStackView: UIStackView = {
+        private lazy var loginPasswordStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [loginTextField, passwordTextField])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.backgroundColor = .systemGray6
@@ -76,8 +74,7 @@ class LogInViewController: UIViewController {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         return textField
     }()
-    
-    
+
     private lazy var logInButton: UIButton = {
         let button = UIButton()
         button.setTitle("Log In", for: .normal)
@@ -102,7 +99,9 @@ class LogInViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
+    private lazy var validationData = ValidationData()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -124,9 +123,7 @@ class LogInViewController: UIViewController {
         contentView.addSubview(logInButton)
         contentView.addSubview(invalidLabel)
     }
-    
-    private lazy var validationData = ValidationData()
-    
+        
     private func validEmail(login: String) -> Bool {
         
         let emailReg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -207,7 +204,7 @@ extension LogInViewController {
         constraints.append(contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor))
         constraints.append(contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor))
         
-        constraints.append(loginPasswordStackView.topAnchor.constraint(lessThanOrEqualTo: vkImageView.bottomAnchor, constant: 120))
+        constraints.append(loginPasswordStackView.topAnchor.constraint(lessThanOrEqualTo: vkImageView.bottomAnchor, constant: 110))
         constraints.append(loginPasswordStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor))
         let leadingStackConstraint = loginPasswordStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
         let trailingStackConstraint = loginPasswordStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
@@ -219,7 +216,7 @@ extension LogInViewController {
         constraints.append(vkImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor))
         constraints.append(vkImageView.widthAnchor.constraint(equalToConstant: 100))
         constraints.append(vkImageView.heightAnchor.constraint(equalToConstant: 100))
-        constraints.append(vkImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 120))
+        constraints.append(vkImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 110))
         
         constraints.append(logInButton.topAnchor.constraint(equalTo: self.loginPasswordStackView.bottomAnchor, constant: 20))
         constraints.append(logInButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor))

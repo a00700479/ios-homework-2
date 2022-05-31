@@ -130,8 +130,6 @@ class ProfileHeaderView: UIView {
         endEditing(true)
     }
     
-
-
     private func addConstraints() {
         
         self.addSubview(stackView)
@@ -158,7 +156,6 @@ class ProfileHeaderView: UIView {
 
         constraints.append(showButton.heightAnchor.constraint(equalToConstant: 50))
        constraints.append(showButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16))
-//        constraints.append(showButton.topAnchor.constraint(equalTo: topAnchor, constant: 36))
        constraints.append(showButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16))
         constraints.append(showButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16))
         

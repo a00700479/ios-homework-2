@@ -39,13 +39,7 @@ class AvatarZoomView: UIView {
         return exitButton
     }()
     
-    @objc func exitPressed() {
-        
-        UIView.animate(withDuration: 0.5) {
-            self.alpha = 0
-        }
-    }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
@@ -54,6 +48,13 @@ class AvatarZoomView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+
+    @objc func exitPressed() {
+
+        UIView.animate(withDuration: 0.5) {
+            self.alpha = 0
+        }
     }
     
     private func layout() {

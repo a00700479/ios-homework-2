@@ -19,6 +19,16 @@ class MyFavouredPhotosCell: UITableViewCell {
         return likes
     }()
 
+    private lazy var arrowImageView: UIImageView = {
+        let arrow = UIImage(systemName: "arrow.right")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        let imageView = UIImageView()
+        imageView.image = arrow
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureTableView()
@@ -35,13 +45,17 @@ class MyFavouredPhotosCell: UITableViewCell {
     private func configureTableView() {
 
         addSubview(likes)
+        addSubview(arrowImageView)
 
         var constraints = [NSLayoutConstraint]()
 
         constraints.append(likes.topAnchor.constraint(equalTo: self.topAnchor, constant: 2))
-        constraints.append(likes.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30))
+        constraints.append(likes.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12))
         constraints.append(likes.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30))
         constraints.append(likes.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5))
+
+        constraints.append(arrowImageView.centerYAnchor.constraint(equalTo: likes.centerYAnchor))
+        constraints.append(arrowImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12))
 
         NSLayoutConstraint.activate(constraints)
     }

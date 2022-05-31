@@ -38,7 +38,7 @@ class MyFavouredPostCell: UITableViewCell {
         var constraints = [NSLayoutConstraint]()
 
         constraints.append(myLoots.topAnchor.constraint(equalTo: self.topAnchor, constant: 5))
-        constraints.append(myLoots.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30))
+        constraints.append(myLoots.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12))
         constraints.append(myLoots.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10))
         constraints.append(myLoots.widthAnchor.constraint(equalToConstant: 250))
 
