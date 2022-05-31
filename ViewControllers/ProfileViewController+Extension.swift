@@ -32,7 +32,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource  {
             let photoCell = tableView.dequeueReusableCell(withIdentifier: Cells.photoCell) as! PhotosTableViewCell
             let photo = photos
             photoCell.set4photo(photo: photo)
-            photoCell.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
+            photoCell.backgroundColor = .white
             photoCell.selectionStyle = UITableViewCell.SelectionStyle.none
             photoCell.isUserInteractionEnabled = true
             return photoCell
@@ -40,7 +40,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource  {
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Cells.labelCell) as! MyFavouredPostCell
             cell.setFav(favourites: label)
-            cell.backgroundColor = .white
+                        cell.backgroundColor = .white
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             return cell
 
@@ -66,7 +66,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource  {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        profileView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+        profileView.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
         return profileView
     }
 

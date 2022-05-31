@@ -12,7 +12,7 @@ class MyFavouredPhotosCell: UITableViewCell {
 
     private lazy var likes: UILabel = {
         let likes = UILabel()
-        likes.font = .systemFont(ofSize: 20, weight: .light)
+        likes.font = .systemFont(ofSize: 24, weight: .bold)
         likes.adjustsFontSizeToFitWidth = true
         likes.minimumScaleFactor = 0.5
         likes.translatesAutoresizingMaskIntoConstraints = false

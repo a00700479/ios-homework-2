@@ -53,7 +53,7 @@ class LogInViewController: UIViewController {
         textField.textColor = .black
         textField.autocapitalizationType = .none
         textField.font = .systemFont(ofSize: 16)
-        textField.placeholder = "Email"
+        textField.placeholder = "Email or phone"
         textField.layer.borderWidth = 0.5
         textField.leftView = UIView(frame: CGRect(x: 0, y: 10, width: 10, height: textField.frame.height))
         textField.leftViewMode = .always
@@ -92,7 +92,7 @@ class LogInViewController: UIViewController {
     private lazy var invalidLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
-        label.font = .systemFont(ofSize: 12)
+        label.font = .systemFont(ofSize: 8)
         label.numberOfLines = 5
         label.contentMode = .scaleToFill
         label.textAlignment = .center
@@ -207,7 +207,7 @@ extension LogInViewController {
         constraints.append(contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor))
         constraints.append(contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor))
         
-        constraints.append(loginPasswordStackView.topAnchor.constraint(lessThanOrEqualTo: vkImageView.bottomAnchor, constant: 50))
+        constraints.append(loginPasswordStackView.topAnchor.constraint(lessThanOrEqualTo: vkImageView.bottomAnchor, constant: 120))
         constraints.append(loginPasswordStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor))
         let leadingStackConstraint = loginPasswordStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
         let trailingStackConstraint = loginPasswordStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
@@ -219,9 +219,9 @@ extension LogInViewController {
         constraints.append(vkImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor))
         constraints.append(vkImageView.widthAnchor.constraint(equalToConstant: 100))
         constraints.append(vkImageView.heightAnchor.constraint(equalToConstant: 100))
-        constraints.append(vkImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 100))
+        constraints.append(vkImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 120))
         
-        constraints.append(logInButton.topAnchor.constraint(equalTo: self.loginPasswordStackView.bottomAnchor, constant: 60))
+        constraints.append(logInButton.topAnchor.constraint(equalTo: self.loginPasswordStackView.bottomAnchor, constant: 20))
         constraints.append(logInButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor))
         constraints.append(logInButton.widthAnchor.constraint(equalToConstant: 350))
         constraints.append(logInButton.heightAnchor.constraint(equalToConstant: 50))
@@ -229,7 +229,7 @@ extension LogInViewController {
         loginButtonBottomAnchor.priority = UILayoutPriority(999)
         constraints.append(loginButtonBottomAnchor)
         
-        constraints.append(invalidLabel.topAnchor.constraint(equalTo: loginPasswordStackView.bottomAnchor, constant: 5))
+        constraints.append(invalidLabel.topAnchor.constraint(equalTo: loginPasswordStackView.bottomAnchor, constant: 3))
         constraints.append(invalidLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor))
         constraints.append(invalidLabel.widthAnchor.constraint(equalToConstant: 300))
         
@@ -243,12 +243,6 @@ extension LogInViewController {
         }
     }
 }
-
-
-
-
-
-
 
 extension LogInViewController: UITextFieldDelegate {
 

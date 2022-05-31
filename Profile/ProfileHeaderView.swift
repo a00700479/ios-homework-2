@@ -33,7 +33,7 @@ class ProfileHeaderView: UIView {
     
     lazy var textField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "New status"
+        textField.placeholder = "Set your status.."
         textField.adjustsFontSizeToFitWidth = true
         textField.minimumFontSize = 0.5
         textField.returnKeyType = .done
@@ -50,17 +50,17 @@ class ProfileHeaderView: UIView {
         return textField
     } ()
     
-    private lazy var showButton: UIButton = {
+  lazy var showButton: UIButton = {
         let showButton = UIButton(type: .system)
         showButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         showButton.setTitle("Set status", for: .normal)
         showButton.backgroundColor = .systemBlue
         showButton.tintColor = .white
-        showButton.layer.cornerRadius = 7
+        showButton.layer.cornerRadius = 12
         showButton.layer.shadowColor = UIColor.black.cgColor
-        showButton.layer.shadowOffset = CGSize(width: 5, height: 5)
-        showButton.layer.shadowRadius = 5
-        showButton.layer.shadowOpacity = 0.3
+        showButton.layer.shadowOffset = CGSize(width: 4, height: 4)
+        showButton.layer.shadowRadius = 4
+        showButton.layer.shadowOpacity = 0.7
         showButton.translatesAutoresizingMaskIntoConstraints = false
         return showButton
     }()
@@ -81,22 +81,7 @@ class ProfileHeaderView: UIView {
         avatarImage.isUserInteractionEnabled = true
         return avatarImage
     } ()
-    
-    @objc func buttonPressed() {
-        guard let status = textField.text else {return}
-        if !status.isEmpty {
-            UIView.animate(withDuration: 0.3) {
-                self.status.text = self.textField.text
-                self.textField.text = .none
-            } completion: { _ in
-            }
-        }
-        if status.isEmpty {
-            textField.trigger()
-        }
-        endEditing(true)
-    }
-    
+
     private lazy var labelStackView: UIStackView = {
         let labelstackView = UIStackView()
         labelstackView.axis = .vertical
@@ -105,7 +90,7 @@ class ProfileHeaderView: UIView {
         labelstackView.translatesAutoresizingMaskIntoConstraints = false
         return labelstackView
     }()
-    
+
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -114,37 +99,68 @@ class ProfileHeaderView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         addConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
+    @objc func buttonPressed() {
+
+        guard let statusx = textField.text else {return}
+
+        if !statusx.isEmpty {
+            UIView.animate(withDuration: 0.3) {
+                 self.status.text = self.textField.text
+
+                self.textField.text = .none
+            } completion: { _ in
+            }
+        }
+
+        if statusx.isEmpty {
+           
+            textField.trigger()
+        }
+        endEditing(true)
+    }
+    
+
+
     private func addConstraints() {
         
         self.addSubview(stackView)
+
         stackView.addArrangedSubview(avatarImage)
         stackView.addArrangedSubview(labelStackView)
         labelStackView.addArrangedSubview(name)
         labelStackView.addArrangedSubview(status)
         labelStackView.addArrangedSubview(textField)
         labelStackView.addArrangedSubview(showButton)
+        self.addSubview(showButton)
+
         
         var constraints = [NSLayoutConstraint]()
         
         constraints.append(avatarImage.widthAnchor.constraint(equalToConstant: 150))
         constraints.append(avatarImage.heightAnchor.constraint(equalToConstant: 150))
-        
+
         constraints.append(stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor))
         constraints.append(stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10))
         constraints.append(stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20))
         constraints.append(stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20))
-        constraints.append(stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25))
+        constraints.append(stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -80))
+
+        constraints.append(showButton.heightAnchor.constraint(equalToConstant: 50))
+       constraints.append(showButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16))
+//        constraints.append(showButton.topAnchor.constraint(equalTo: topAnchor, constant: 36))
+       constraints.append(showButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16))
+        constraints.append(showButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16))
         
         NSLayoutConstraint.activate(constraints)
     }

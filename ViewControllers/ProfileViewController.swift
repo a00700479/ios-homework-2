@@ -67,7 +67,9 @@ class ProfileViewController: UIViewController, TapLikedDelegate {
     
     var photos = PhotoView(photoName1: Photos.photo1!, photoName2: Photos.photo2!, photoName3: Photos.photo3!, photoName4: Photos.photo4!)
     var label = FavouritesView(favourites: "My posts:")
+
     var likeLabel = myLikesView(myLikes: "My photos:")
+
     
     struct Cells {
         static let postCell = "PostTableViewCell"
